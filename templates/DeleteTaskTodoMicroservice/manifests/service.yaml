@@ -7,6 +7,6 @@ spec:
   selector:
     app: {{ .Release.Name }}-todo-delete-tasks-api
   ports:
-    - port: {{ .Values.delete-tasks.ports.port }}
-      targetPort: {{ .Values.delete-tasks.ports.targetPort }}
+    - port: {{ .Values.deletetasks.ports.port }}
+      targetPort: {{ .Values.deletetasks.ports.targetPort }}
       
