@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-todo-get-task-api
 spec:
-  type: {{ .Values.get-tasks.type }}
+  type: {{ .Values.gettasks.type }}
   selector:
     app: {{ .Release.Name }}-todo-get-task-api
   ports:
-    - port: {{ .Values.get-tasks.ports.port }}
-      targetPort: {{ .Values.get-tasks.ports.targetPort }}
+    - port: {{ .Values.gettasks.ports.port }}
+      targetPort: {{ .Values.gettasks.ports.targetPort }}
       
