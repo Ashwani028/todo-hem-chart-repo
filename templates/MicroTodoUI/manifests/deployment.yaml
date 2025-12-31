@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
        - name: {{ .Release.Name }}-todo-ui
-         image: {{ .Values.common.acr_name }}/{{ .Values.todoui.image_name }}:{{ .Values.todoui.tag }}
+         image: {{ .Values.common.acr_name }}/{{ .Values.todoui.image.image_name }}:{{ .Values.todoui.image.tag }}
          ports:
           - containerPort: {{ .Values.todoui.ports.containerPort }}
