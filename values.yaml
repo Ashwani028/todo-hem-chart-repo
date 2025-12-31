@@ -1,4 +1,4 @@
-add-tasks:
+addtasks:
   replicas: 1
   image:
     acr_name: acrdevtodoproject010.azurecr.io
@@ -27,7 +27,7 @@ common:
       value:  "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sql-dev-todoapp-010.database.windows.net,1433;Database=sqldb-dev-todoproject;Uid=devopsadmin;Pwd=P@ssw01rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
 
 
-delete-tasks:
+deletetasks:
   replicas: 1
   image:
     image_name: todo-delete-tasks-api
@@ -42,7 +42,7 @@ delete-tasks:
   port:
     number: 80
 
-get-tasks:
+gettasks:
   replicas:  2
   image:
    image_name:  todo-get-tasks-api
@@ -58,7 +58,7 @@ get-tasks:
   port:
     number: 80
 
-todo-ui:  
+todoui:  
   replicas: 2
   image:
    image_name:  todo-get-tasks-api
