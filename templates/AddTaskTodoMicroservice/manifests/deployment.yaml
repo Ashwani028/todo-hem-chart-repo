@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-todo-add-tasks-api
+spec:
+  replicas: {{ .Values.add-tasks.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-todo-add-tasks-api
+  template:
+    metadata:
+      name: {{ .Release.Name }}-todo-add-tasks
+      labels:
+        app: {{ .Release.Name }}-todo-add-tasks-api
+    spec:
+      containers:
+      - name: {{ .Release.Name }}-todo-add-tasks-api
+        image: {{ .Values.add-tasks.image.acr_name }}/{{ .Values.add-tasks.image.image_name }}:{{ .Values.add-tasks.image.tag }}
+        ports:
+        - containerPort: {{ .Values.add-tasks.image.ports.containerPort }}
+        env: 
+        - name: {{ .Values.add-tasks.image.env.name }}
+          value: {{ .Values.add-tasks.image.env.value }}

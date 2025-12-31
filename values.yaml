@@ -1,0 +1,75 @@
+add-tasks:
+  replicas: 1
+  image:
+    acr_name: acrdevtodoproject010.azurecr.io
+    image_name: todo-add-tasks-api
+    tag: v1
+    ports:
+      containerPort: 8000
+    env: 
+      name:  CONNECTION_STRING
+      value:  "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sql-dev-todoapp-010.database.windows.net,1433;Database=sqldb-dev-todoproject;Uid=devopsadmin;Pwd=P@ssw01rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+
+  type:  ClusterIP
+  ports:
+    port: 80
+    targetPort: 8000
+  rules:
+    host: todoaddtask.techno028.shop
+
+common:
+  ingressClassName: azure-application-gateway
+  pathType: Prefix
+  path: "/"
+  acr_name: acrdevtodoproject010.azurecr.io
+  env: 
+      name:  CONNECTION_STRING
+      value:  "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sql-dev-todoapp-010.database.windows.net,1433;Database=sqldb-dev-todoproject;Uid=devopsadmin;Pwd=P@ssw01rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+
+
+delete-tasks:
+  replicas: 1
+  image:
+    image_name: todo-delete-tasks-api
+    tag: v1
+    ports:
+      containerPort: 8000
+  ports:
+    port: 80
+    targetPort: 8000
+  rules:
+    host: tododeletetask.techno028.shop
+  port:
+    number: 80
+
+get-tasks:
+  replicas:  2
+  image:
+   image_name:  todo-get-tasks-api
+   tag:  v1
+   ports:
+    containerPort: 8000
+  type:  ClusterIP
+  ports:
+    port: 80
+    targetPort: 8000
+  rules:
+    host: todogettask.techno028.shop
+  port:
+    number: 80
+
+todo-ui:  
+  replicas: 2
+  image:
+   image_name:  todo-get-tasks-api
+   tag:  v1
+   ports:
+    containerPort: 80
+  type: ClusterIP
+  ports:
+    port: 80
+    targetPort: 80
+  rules:
+    host: todoui.techno028.shop  
+  port: 
+   number: 80

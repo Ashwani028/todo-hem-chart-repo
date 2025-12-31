@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name}}-todo-delete-tasks-api-ingress
+spec:
+  ingressClassName: {{ .Values.common.ingressClassName }}
+  rules:
+    - host: {{ .Values.delete-tasks.rules.host }}
+      http:
+        paths:
+          - pathType: {{ .Values.common.pathType }}
+            path: {{ .Values.common.path }}
+            backend:
+              service:
+                name: {{ .Release.Name}}-todo-delete-tasks-api
+                port:
+                  number: {{ .Values.delete-tasks.port.number }}
+                  
