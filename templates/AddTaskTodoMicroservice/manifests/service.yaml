@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-todo-add-tasks-api
 spec:
-  type: {{ .Values.add-tasks.type }}
+  type: {{ .Values.addtasks.type }}
   selector:
     app: {{ .Release.Name }}-todo-add-tasks-api
   ports:
-   - port: {{ .Values.add-tasks.ports.port }}
-     targetPort: {{ .Values.add-tasks.ports.targetPort }}
+   - port: {{ .Values.addtasks.ports.port }}
+     targetPort: {{ .Values.addtasks.ports.targetPort }}
       
