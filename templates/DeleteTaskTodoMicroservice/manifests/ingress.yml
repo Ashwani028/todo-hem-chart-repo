@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: {{ .Values.common.ingressClassName }}
   rules:
-    - host: {{ .Values.delete-tasks.rules.host }}
+    - host: {{ .Values.deletetasks.rules.host }}
       http:
         paths:
           - pathType: {{ .Values.common.pathType }}
@@ -14,5 +14,5 @@ spec:
               service:
                 name: {{ .Release.Name }}-todo-delete-tasks-api
                 port:
-                  number: {{ .Values.delete-tasks.port.number }}
+                  number: {{ .Values.deletetasks.port.number }}
                   
