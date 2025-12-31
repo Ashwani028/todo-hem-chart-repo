@@ -61,7 +61,7 @@ gettasks:
 todoui:  
   replicas: 2
   image:
-   image_name:  todo-get-tasks-api
+   image_name: todo-get-tasks-api
    tag:  v1
    ports:
     containerPort: 80
