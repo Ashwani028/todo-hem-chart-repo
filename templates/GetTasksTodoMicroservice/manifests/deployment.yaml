@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-todo-get-task-api
 spec:
-  replicas: {{ .Values.get-tasks.replicas }}
+  replicas: {{ .Values.gettasks.replicas }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}-todo-get-task-api
@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
       - name: {{ .Release.Name }}-todo-get-task-api
-        image: {{ .Values.common.acr_name }}/{{ .Values.get-tasks.image.image_name }}:{{ .Values.get-tasks.image.tag }}
+        image: {{ .Values.common.acr_name }}/{{ .Values.gettasks.image.image_name }}:{{ .Values.gettasks.image.tag }}
         ports:
-        - containerPort: {{ .Values.get-tasks.ports.containerPort }}
+        - containerPort: {{ .Values.gettasks.ports.containerPort }}
         env: 
         - name: {{ .Values.common.env.name }}
           value: {{ .Values.common.env.value }}
