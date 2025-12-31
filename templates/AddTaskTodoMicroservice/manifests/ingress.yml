@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: {{ .Values.common.ingressClassName }}
   rules:
-    - host: {{ .Values.add-tasks.rules.host }}
+    - host: {{ .Values.addtasks.rules.host }}
       http:
         paths:
           - pathType: {{ .Values.common.pathType }}
@@ -14,5 +14,5 @@ spec:
               service:
                 name: {{ .Release.Name }}-todo-add-tasks-api
                 port:
-                  number: {{ .Values.add-tasks.ports.port }}
+                  number: {{ .Values.addtasks.ports.port }}
                   
