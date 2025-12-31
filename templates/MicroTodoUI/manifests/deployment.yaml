@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-todo-ui
 spec:
-  replicas: {{ .Values.todo-ui.replicas }}
+  replicas: {{ .Values.todoui.replicas }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}-todo-ui
@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: {{ .Release.Name }}-todo-ui
-        image: {{ .Values.common.acr_name }}/{{ .Values.todo-ui.image_name }}:{{ .Values.todo-ui.tag }}
+        image: {{ .Values.common.acr_name }}/{{ .Values.todoui.image_name }}:{{ .Values.todoui.tag }}
         ports:
-        - containerPort: {{ .Values.todo-ui.ports.containerPort }}
+        - containerPort: {{ .Values.todoui.ports.containerPort }}
