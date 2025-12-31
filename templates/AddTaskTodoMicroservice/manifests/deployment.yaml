@@ -19,5 +19,5 @@ spec:
         ports:
         - containerPort: {{ .Values.addtasks.image.ports.containerPort }}
         env: 
-        - name: {{ .Values.add-tasks.image.env.name }}
-          value: {{ .Values.add-tasks.image.env.value }}
+        - name: {{ .Values.addtasks.image.env.name }}
+          value: {{ .Values.addtasks.image.env.value }}
